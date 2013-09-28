@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Olá mundo!</string>
+    <string name="show_text">Mostra texto</string>
+    <string name="Message">O texto será exibido</string>
+    
+</resources>
