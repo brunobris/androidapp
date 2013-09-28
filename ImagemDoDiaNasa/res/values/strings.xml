@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ImagemDoDiaNasa</string>
+    <string name="app_name">Russian Project</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="Titulo_img">Title</string>
+    <string name="data">Date</string>
+    <string name="descricao_img">Image taken from nasa.gov</string>
 
 </resources>

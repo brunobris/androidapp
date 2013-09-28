@@ -1,8 +1,11 @@
 package bruno.imagemdodianasa;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 
 public class ActivityPrincipal extends Activity {
 
@@ -20,4 +23,17 @@ public class ActivityPrincipal extends Activity {
         return true;
     }
     
+    public void displayData(RssItem Item){
+    	TextView title = (TextView)findViewById(R.id.titulo);
+    	TextView date = (TextView)findViewById(R.id.data);
+    	ImageView image = (ImageView)findViewById(R.id.imagem);
+    	TextView descricao = (TextView)findViewById(R.id.descricao);
+    	
+    	if (Item != null) {
+    		title.setText(Item.getTitle());
+    		date.setText(Item.getDate());
+    		//image.setImage()
+    		descricao.setText(Item.getDescription());
+    	}
+    }
 }
