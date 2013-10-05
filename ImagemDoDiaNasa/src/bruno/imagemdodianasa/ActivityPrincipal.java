@@ -1,5 +1,11 @@
 package bruno.imagemdodianasa;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +19,7 @@ public class ActivityPrincipal extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_principal);
+        refresh();
     }
 
 
@@ -31,9 +38,24 @@ public class ActivityPrincipal extends Activity {
     	
     	if (Item != null) {
     		title.setText(Item.getTitle());
-    		date.setText(Item.getDate());
-    		//image.setImage()
+    		DateFormat pubDateFormatter = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z",Locale.ENGLISH);
+    		DateFormat localeFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+    		
+    		try{
+    			Date dataObj = pubDateFormatter.parse(Item.getDate());
+    			date.setText(localeFormatter.format(dataObj));
+    		}catch(ParseException e){
+    			e.printStackTrace();
+    		}
+    		
+    		image.setImageBitmap(Item.getImage());
     		descricao.setText(Item.getDescription());
     	}
+    }
+    
+    public void refresh() {
+    	displayData(null);
+    	RssService service = new RssService(this);
+    	service.execute(new RssHandler());
     }
 }

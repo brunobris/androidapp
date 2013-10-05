@@ -41,6 +41,9 @@ public class RssItem {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+	public String getLink() {
+		return link;
+	}
 	public void setLink(String link){
 		this.link = link; 
 	}
